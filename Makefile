@@ -5,10 +5,17 @@ hello: hello.asm
 boot: boot.asm
 	nasm -o boot.bin -f bin boot.asm
 
+string: string.asm
+	nasm -o string.bin -f bin string.asm
+
 .PHONY: clean
 clean:
-	rm -f hello.o hello
+	rm -f *.o *.bin
 
 .PHONY: run
 run:
 	qemu-system-x86_64 -drive file=boot.bin,format=raw -D qemu.log
+
+.PHONY: run-string
+run-string:
+	qemu-system-x86_64 -drive file=string.bin,format=raw -D qemu.log

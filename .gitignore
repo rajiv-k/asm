@@ -1,3 +1,2 @@
-boot.bin
-hello
-hello.o
+*.bin
+*.o
